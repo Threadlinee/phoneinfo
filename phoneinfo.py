@@ -106,6 +106,13 @@ COUNTRY_CODE_MAP = {
     '423': 'Liechtenstein',
 }
 
+# Load country-city data from JSON
+try:
+    with open('europe_countries_cities.json', 'r', encoding='utf-8') as f:
+        country_city_data = json.load(f)
+except Exception:
+    country_city_data = {}
+
 # ==================== HELPER FUNCTIONS (ADDED) ====================
 def validate_european_number(phone_number):
     try:
@@ -325,6 +332,13 @@ def display_results(info):
     print(f"• City/Region: {city if city else 'Unknown'}")
     country = info.get('country')
     print(f"• Country: {country if country else 'Unknown'}")
+    # Show example cities from JSON if available
+    if country and country_city_data:
+        cities = country_city_data.get(country)
+        if cities:
+            print(f"• Example Cities: {', '.join(cities[:5])} ...")
+        else:
+            print("• No city data found for this country.")
     print(f"• Latitude: {info.get('latitude') if info.get('latitude') else 'Unknown'}")
     print(f"• Longitude: {info.get('longitude') if info.get('longitude') else 'Unknown'}")
     print(f"• Carrier: {info.get('carrier')}")

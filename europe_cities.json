@@ -1,0 +1,202 @@
+[
+    {
+      "country": "Albania",
+      "cities": ["Tirana", "Durrës", "Vlorë", "Elbasan", "Shkodër", "Fier", "Korçë", "Berat", "Lushnjë", "Kavajë"]
+    },
+    {
+      "country": "Andorra",
+      "cities": ["Andorra la Vella", "Escaldes-Engordany", "Encamp", "Sant Julià de Lòria", "La Massana", "Canillo", "Ordino"]
+    },
+    {
+      "country": "Armenia",
+      "cities": ["Yerevan", "Gyumri", "Vanadzor", "Vagharshapat", "Hrazdan", "Abovyan", "Kapan", "Armavir", "Artashat", "Ijevan"]
+    },
+    {
+      "country": "Austria",
+      "cities": ["Vienna", "Graz", "Linz", "Salzburg", "Innsbruck", "Klagenfurt", "Villach", "Wels", "Sankt Pölten", "Dornbirn"]
+    },
+    {
+      "country": "Azerbaijan",
+      "cities": ["Baku", "Ganja", "Sumqayit", "Mingachevir", "Lankaran", "Shirvan", "Yevlakh", "Nakhchivan", "Shaki", "Khirdalan"]
+    },
+    {
+      "country": "Belarus",
+      "cities": ["Minsk", "Gomel", "Mogilev", "Vitebsk", "Hrodna", "Brest", "Baranavichy", "Pinsk", "Orsha", "Mazyr"]
+    },
+    {
+      "country": "Belgium",
+      "cities": ["Brussels", "Antwerp", "Ghent", "Charleroi", "Liège", "Bruges", "Namur", "Leuven", "Mons", "Aalst"]
+    },
+    {
+      "country": "Bosnia and Herzegovina",
+      "cities": ["Sarajevo", "Banja Luka", "Tuzla", "Zenica", "Mostar", "Bijeljina", "Prijedor", "Brčko", "Doboj", "Cazin"]
+    },
+    {
+      "country": "Bulgaria",
+      "cities": ["Sofia", "Plovdiv", "Varna", "Burgas", "Ruse", "Stara Zagora", "Pleven", "Sliven", "Dobrich", "Shumen"]
+    },
+    {
+      "country": "Croatia",
+      "cities": ["Zagreb", "Split", "Rijeka", "Osijek", "Zadar", "Pula", "Dubrovnik", "Šibenik", "Varaždin", "Bjelovar"]
+    },
+    {
+      "country": "Cyprus",
+      "cities": ["Nicosia", "Limassol", "Larnaca", "Famagusta", "Paphos", "Kyrenia", "Aradippou", "Paralimni", "Latsia", "Aglandjia"]
+    },
+    {
+      "country": "Czech Republic",
+      "cities": ["Prague", "Brno", "Ostrava", "Plzeň", "Liberec", "Olomouc", "Ústí nad Labem", "Hradec Králové", "Pardubice", "Zlín"]
+    },
+    {
+      "country": "Denmark",
+      "cities": ["Copenhagen", "Aarhus", "Odense", "Aalborg", "Esbjerg", "Randers", "Kolding", "Horsens", "Vejle", "Roskilde"]
+    },
+    {
+      "country": "Estonia",
+      "cities": ["Tallinn", "Tartu", "Narva", "Pärnu", "Kohtla-Järve", "Viljandi", "Rakvere", "Maardu", "Kuressaare", "Võru"]
+    },
+    {
+      "country": "Finland",
+      "cities": ["Helsinki", "Espoo", "Tampere", "Vantaa", "Oulu", "Turku", "Jyväskylä", "Lahti", "Kuopio", "Pori"]
+    },
+    {
+      "country": "France",
+      "cities": ["Paris", "Marseille", "Lyon", "Toulouse", "Nice", "Nantes", "Strasbourg", "Montpellier", "Bordeaux", "Lille"]
+    },
+    {
+      "country": "Georgia",
+      "cities": ["Tbilisi", "Kutaisi", "Batumi", "Rustavi", "Zugdidi", "Gori", "Poti", "Samtredia", "Khashuri", "Senaki"]
+    },
+    {
+      "country": "Germany",
+      "cities": ["Berlin", "Hamburg", "Munich", "Cologne", "Frankfurt", "Stuttgart", "Düsseldorf", "Dortmund", "Essen", "Leipzig"]
+    },
+    {
+      "country": "Greece",
+      "cities": ["Athens", "Thessaloniki", "Patras", "Heraklion", "Larissa", "Volos", "Ioannina", "Chania", "Kalamata", "Kavala"]
+    },
+    {
+      "country": "Hungary",
+      "cities": ["Budapest", "Debrecen", "Szeged", "Miskolc", "Pécs", "Győr", "Nyíregyháza", "Kecskemét", "Székesfehérvár", "Szombathely"]
+    },
+    {
+      "country": "Iceland",
+      "cities": ["Reykjavík", "Kópavogur", "Hafnarfjörður", "Akureyri", "Reykjanesbær", "Garðabær", "Mosfellsbær", "Selfoss", "Akranes", "Ísafjörður"]
+    },
+    {
+      "country": "Ireland",
+      "cities": ["Dublin", "Cork", "Limerick", "Galway", "Waterford", "Drogheda", "Dundalk", "Swords", "Bray", "Navan"]
+    },
+    {
+      "country": "Italy",
+      "cities": ["Rome", "Milan", "Naples", "Turin", "Palermo", "Genoa", "Bologna", "Florence", "Bari", "Catania"]
+    },
+    {
+      "country": "Kazakhstan",
+      "cities": ["Almaty", "Astana", "Shymkent", "Karaganda", "Aktobe", "Taraz", "Pavlodar", "Semey", "Atyrau", "Kostanay"]
+    },
+    {
+      "country": "Kosovo",
+      "cities": ["Pristina", "Prizren", "Peja", "Mitrovica", "Ferizaj", "Gjakova", "Gjilan", "Podujevo", "Vushtrri", "Suhareka"]
+    },
+    {
+      "country": "Latvia",
+      "cities": ["Riga", "Daugavpils", "Liepāja", "Jelgava", "Jūrmala", "Ventspils", "Rēzekne", "Valmiera", "Ogre", "Tukums"]
+    },
+    {
+      "country": "Liechtenstein",
+      "cities": ["Vaduz", "Schaan", "Balzers", "Triesen", "Eschen", "Mauren", "Gamprin", "Ruggell", "Schellenberg", "Planken"]
+    },
+    {
+      "country": "Lithuania",
+      "cities": ["Vilnius", "Kaunas", "Klaipėda", "Šiauliai", "Panevėžys", "Alytus", "Marijampolė", "Mažeikiai", "Jonava", "Utena"]
+    },
+    {
+      "country": "Luxembourg",
+      "cities": ["Luxembourg", "Esch-sur-Alzette", "Differdange", "Dudelange", "Ettelbruck", "Diekirch", "Wiltz", "Echternach", "Rumelange", "Grevenmacher"]
+    },
+    {
+      "country": "Malta",
+      "cities": ["Valletta", "Birkirkara", "Mosta", "Qormi", "Sliema", "Zabbar", "San Ġwann", "Fgura", "Żebbuġ", "Paola"]
+    },
+    {
+      "country": "Moldova",
+      "cities": ["Chișinău", "Tiraspol", "Bălți", "Bender", "Rîbnița", "Cahul", "Ungheni", "Soroca", "Orhei", "Comrat"]
+    },
+    {
+      "country": "Monaco",
+      "cities": ["Monaco", "Monte Carlo", "La Condamine", "Fontvieille"]
+    },
+    {
+      "country": "Montenegro",
+      "cities": ["Podgorica", "Nikšić", "Herceg Novi", "Pljevlja", "Bijelo Polje", "Bar", "Cetinje", "Budva", "Berane", "Ulcinj"]
+    },
+    {
+      "country": "Netherlands",
+      "cities": ["Amsterdam", "Rotterdam", "The Hague", "Utrecht", "Eindhoven", "Tilburg", "Groningen", "Almere", "Breda", "Nijmegen"]
+    },
+    {
+      "country": "North Macedonia",
+      "cities": ["Skopje", "Bitola", "Kumanovo", "Prilep", "Tetovo", "Veles", "Ohrid", "Gostivar", "Strumica", "Kavadarci"]
+    },
+    {
+      "country": "Norway",
+      "cities": ["Oslo", "Bergen", "Trondheim", "Stavanger", "Drammen", "Fredrikstad", "Kristiansand", "Sandnes", "Tromsø", "Sarpsborg"]
+    },
+    {
+      "country": "Poland",
+      "cities": ["Warsaw", "Kraków", "Łódź", "Wrocław", "Poznań", "Gdańsk", "Szczecin", "Bydgoszcz", "Lublin", "Katowice"]
+    },
+    {
+      "country": "Portugal",
+      "cities": ["Lisbon", "Porto", "Vila Nova de Gaia", "Amadora", "Braga", "Coimbra", "Setúbal", "Funchal", "Almada", "Aveiro"]
+    },
+    {
+      "country": "Romania",
+      "cities": ["Bucharest", "Cluj-Napoca", "Timișoara", "Iași", "Constanța", "Craiova", "Brașov", "Galați", "Ploiești", "Oradea"]
+    },
+    {
+      "country": "Russia",
+      "cities": ["Moscow", "Saint Petersburg", "Novosibirsk", "Yekaterinburg", "Nizhny Novgorod", "Kazan", "Chelyabinsk", "Samara", "Omsk", "Rostov-on-Don"]
+    },
+    {
+      "country": "San Marino",
+      "cities": ["San Marino", "Serravalle", "Borgo Maggiore", "Domagnano", "Fiorentino", "Acquaviva", "Faetano", "Chiesanuova", "Montegiardino"]
+    },
+    {
+      "country": "Serbia",
+      "cities": ["Belgrade", "Novi Sad", "Niš", "Kragujevac", "Subotica", "Zrenjanin", "Pančevo", "Čačak", "Novi Pazar", "Kraljevo"]
+    },
+    {
+      "country": "Slovakia",
+      "cities": ["Bratislava", "Košice", "Prešov", "Žilina", "Nitra", "Banská Bystrica", "Trnava", "Trenčín", "Poprad", "Prievidza"]
+    },
+    {
+      "country": "Slovenia",
+      "cities": ["Ljubljana", "Maribor", "Celje", "Kranj", "Velenje", "Novo Mesto", "Ptuj", "Koper", "Trbovlje", "Kamnik"]
+    },
+    {
+      "country": "Spain",
+      "cities": ["Madrid", "Barcelona", "Valencia", "Seville", "Zaragoza", "Málaga", "Murcia", "Palma", "Las Palmas", "Bilbao"]
+    },
+    {
+      "country": "Sweden",
+      "cities": ["Stockholm", "Gothenburg", "Malmö", "Uppsala", "Västerås", "Örebro", "Linköping", "Helsingborg", "Jönköping", "Norrköping"]
+    },
+    {
+      "country": "Switzerland",
+      "cities": ["Zurich", "Geneva", "Basel", "Bern", "Lausanne", "Lucerne", "St. Gallen", "Winterthur", "Lugano", "Biel/Bienne"]
+    },
+    {
+      "country": "Turkey",
+      "cities": ["Istanbul", "Ankara", "Izmir", "Bursa", "Adana", "Gaziantep", "Konya", "Antalya", "Kayseri", "Mersin"]
+    },
+    {
+      "country": "Ukraine",
+      "cities": ["Kyiv", "Kharkiv", "Odesa", "Dnipro", "Donetsk", "Zaporizhzhia", "Lviv", "Kryvyi Rih", "Mykolaiv", "Vinnytsia"]
+    },
+    {
+      "country": "Vatican City",
+      "cities": ["Vatican City"]
+    }
+]
