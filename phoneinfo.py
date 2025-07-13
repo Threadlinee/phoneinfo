@@ -72,6 +72,15 @@ def get_number_type(parsed_number):
     except Exception:
         return None
 
+def get_country_name(parsed_number):
+    try:
+        region_code = phonenumbers.region_code_for_country_code(parsed_number.country_code)
+        if region_code:
+            return geocoder.country_name_for_number(parsed_number, 'en')
+        return None
+    except Exception:
+        return None
+
 # ==================== NEW REVERSE LOOKUP FUNCTIONS ====================
 def reverse_lookup_public_sources(phone_number):
     """Check public directories and social media for name associations"""
@@ -166,13 +175,14 @@ def get_phone_info(phone_number):
         'timezone': get_timezone_info(parsed_number),
         'number_type': get_number_type(parsed_number),
         'valid': True,
-        'lookup_time': time.time() - start_time
+        'lookup_time': time.time() - start_time,
+        'parsed_number': parsed_number # Added for display_results
     }
     return result
 
 
 def display_results(info):
-    """Display all key phone info in a user-friendly way"""
+    """Display all key phone info in a user-friendly way, including city and country"""
     print("\n================ PHONE NUMBER INFO ================")
     if not info.get('valid'):
         print(f"❌ {info.get('error', 'Invalid number')}")
@@ -180,7 +190,20 @@ def display_results(info):
     print(f"• Number: {info.get('number')}")
     print(f"• Country Code: {info.get('country_code')}")
     print(f"• National Number: {info.get('national_number')}")
-    print(f"• Location: {info.get('location')}")
+    # City/region
+    print(f"• City/Region: {info.get('location')}")
+    # Country name
+    country_name = None
+    if 'parsed_number' in info:
+        country_name = get_country_name(info['parsed_number'])
+    else:
+        # Try to reconstruct parsed_number from info
+        try:
+            parsed_number = validate_european_number(info.get('number'))
+            country_name = get_country_name(parsed_number)
+        except Exception:
+            country_name = None
+    print(f"• Country: {country_name if country_name else 'Unknown'}")
     print(f"• Carrier: {info.get('carrier')}")
     tz = info.get('timezone')
     if isinstance(tz, (list, tuple)):
