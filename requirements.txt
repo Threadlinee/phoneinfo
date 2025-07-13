@@ -5,3 +5,4 @@ pytz
 reverse-geocoder
 python-whois
 dnspython
+geopy
