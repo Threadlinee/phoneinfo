@@ -30,6 +30,16 @@ EU_COUNTRY_CODES = [
     '41', '44', '383', '389'
 ]
 
+COUNTRY_CODE_MAP = {
+    '383': 'Kosovo',
+    '44': 'United Kingdom',
+    '49': 'Germany',
+    '33': 'France',
+    '39': 'Italy',
+    '34': 'Spain',
+    # ... add more as needed ...
+}
+
 # ==================== HELPER FUNCTIONS (ADDED) ====================
 def validate_european_number(phone_number):
     try:
@@ -68,7 +78,23 @@ def check_social_media(phone_number):
 
 def get_number_type(parsed_number):
     try:
-        return phonenumbers.number_type(parsed_number)
+        ntype = phonenumbers.number_type(parsed_number)
+        # Local mapping of number type integers to human-readable strings
+        type_map = {
+            0: 'Fixed line',
+            1: 'Mobile',
+            2: 'Fixed line or Mobile',
+            3: 'Toll free',
+            4: 'Premium rate',
+            5: 'Shared cost',
+            6: 'VoIP',
+            7: 'Personal number',
+            8: 'Pager',
+            9: 'UAN',
+            10: 'Voicemail',
+            99: 'Unknown',
+        }
+        return type_map.get(ntype, str(ntype))
     except Exception:
         return None
 
@@ -76,8 +102,11 @@ def get_country_name(parsed_number):
     try:
         region_code = phonenumbers.region_code_for_country_code(parsed_number.country_code)
         if region_code:
-            return geocoder.country_name_for_number(parsed_number, 'en')
-        return None
+            country = geocoder.country_name_for_number(parsed_number, 'en')
+            if country:
+                return country
+        # Fallback to manual map
+        return COUNTRY_CODE_MAP.get(str(parsed_number.country_code), None)
     except Exception:
         return None
 
@@ -224,10 +253,12 @@ def display_results(info):
         print(f"❌ {info.get('error', 'Invalid number')}")
         return
     print(f"• Number: {info.get('number')}")
-    print(f"• Country Code: {info.get('country_code')}")
+    print(f"• Country Code: {info.get('country_code')}" )
     print(f"• National Number: {info.get('national_number')}")
-    print(f"• City/Region: {info.get('city')}")
-    print(f"• Country: {info.get('country') if info.get('country') else 'Unknown'}")
+    city = info.get('city')
+    print(f"• City/Region: {city if city else 'Unknown'}")
+    country = info.get('country')
+    print(f"• Country: {country if country else 'Unknown'}")
     print(f"• Latitude: {info.get('latitude') if info.get('latitude') else 'Unknown'}")
     print(f"• Longitude: {info.get('longitude') if info.get('longitude') else 'Unknown'}")
     print(f"• Carrier: {info.get('carrier')}")
