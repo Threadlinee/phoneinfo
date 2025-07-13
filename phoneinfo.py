@@ -141,9 +141,8 @@ def start_live_caller_id_monitor():
 
 # ==================== MODIFIED MAIN FUNCTIONS ====================
 def get_phone_info(phone_number):
-    """Main lookup function now with reverse lookup"""
+    """Main lookup function now with always-on info display"""
     start_time = time.time()
-    
     parsed_number = validate_european_number(phone_number)
     if not parsed_number:
         return {
@@ -151,55 +150,47 @@ def get_phone_info(phone_number):
             'valid': False,
             'lookup_time': time.time() - start_time
         }
-    
+
     formatted_num = phonenumbers.format_number(
         parsed_number,
         phonenumbers.PhoneNumberFormat.INTERNATIONAL
     )
-    
+
     # Get standard info
     result = {
         'number': formatted_num,
         'country_code': parsed_number.country_code,
+        'national_number': parsed_number.national_number,
         'carrier': get_carrier_info(parsed_number),
         'location': get_location_info(parsed_number),
         'timezone': get_timezone_info(parsed_number),
-        'spam': check_spam_databases(phone_number),
-        'social_media': check_social_media(phone_number),
         'number_type': get_number_type(parsed_number),
         'valid': True,
         'lookup_time': time.time() - start_time
     }
-    
-    # Add reverse lookup results
-    if input("Perform reverse lookup? (y/n): ").lower() == 'y':
-        result['reverse_lookup'] = {
-            'public_records': reverse_lookup_public_sources(phone_number),
-            'social_media': reverse_lookup_social_media(phone_number)
-        }
-    
     return result
 
+
 def display_results(info):
-    """Enhanced display with reverse lookup results"""
-    # ... (keep all your existing display code) ...
-    
-    # Add reverse lookup section
-    if 'reverse_lookup' in info:
-        print("\n🕵️‍♂️ REVERSE LOOKUP RESULTS:")
-        rl = info['reverse_lookup']
-        
-        if 'public_records' in rl:
-            pr = rl['public_records']
-            if 'name' in pr:
-                print(f"• Possible Name: {pr['name']} (Source: {pr.get('source', 'Unknown')})")
-            elif 'error' in pr:
-                print(f"• Public Records Error: {pr['error']}")
-        
-        if 'social_media' in rl and rl['social_media']:
-            print("\n🔍 Social Media Links:")
-            for sm in rl['social_media']:
-                print(f"  - {sm['platform']}: {sm['url']}")
+    """Display all key phone info in a user-friendly way"""
+    print("\n================ PHONE NUMBER INFO ================")
+    if not info.get('valid'):
+        print(f"❌ {info.get('error', 'Invalid number')}")
+        return
+    print(f"• Number: {info.get('number')}")
+    print(f"• Country Code: {info.get('country_code')}")
+    print(f"• National Number: {info.get('national_number')}")
+    print(f"• Location: {info.get('location')}")
+    print(f"• Carrier: {info.get('carrier')}")
+    tz = info.get('timezone')
+    if isinstance(tz, (list, tuple)):
+        tz = ', '.join(tz)
+    print(f"• Timezone(s): {tz}")
+    ntype = info.get('number_type')
+    if ntype is not None:
+        print(f"• Number Type: {ntype}")
+    print(f"• Lookup Time: {info.get('lookup_time'):.2f} seconds")
+    print("==================================================\n")
 
 # ==================== MODIFIED MAIN MENU ====================
 def main():
