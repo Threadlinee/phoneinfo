@@ -81,6 +81,35 @@ def get_country_name(parsed_number):
     except Exception:
         return None
 
+def get_lat_lon_for_location(city, country):
+    """Get latitude and longitude for a given city and country using OpenStreetMap Nominatim API."""
+    try:
+        if not city and not country:
+            return None, None
+        query = ''
+        if city:
+            query += city
+        if country:
+            if query:
+                query += ', '
+            query += country
+        url = f"https://nominatim.openstreetmap.org/search"
+        params = {
+            'q': query,
+            'format': 'json',
+            'limit': 1
+        }
+        response = requests.get(url, params=params, headers={'User-Agent': USER_AGENT}, timeout=REQUEST_TIMEOUT)
+        if response.status_code == 200:
+            data = response.json()
+            if data:
+                lat = data[0].get('lat')
+                lon = data[0].get('lon')
+                return lat, lon
+        return None, None
+    except Exception:
+        return None, None
+
 # ==================== NEW REVERSE LOOKUP FUNCTIONS ====================
 def reverse_lookup_public_sources(phone_number):
     """Check public directories and social media for name associations"""
@@ -164,14 +193,21 @@ def get_phone_info(phone_number):
         parsed_number,
         phonenumbers.PhoneNumberFormat.INTERNATIONAL
     )
+    city = get_location_info(parsed_number)
+    country = get_country_name(parsed_number)
+    lat, lon = get_lat_lon_for_location(city, country)
 
     # Get standard info
     result = {
         'number': formatted_num,
         'country_code': parsed_number.country_code,
         'national_number': parsed_number.national_number,
+        'city': city,
+        'country': country,
+        'latitude': lat,
+        'longitude': lon,
         'carrier': get_carrier_info(parsed_number),
-        'location': get_location_info(parsed_number),
+        'location': city,  # for backward compatibility
         'timezone': get_timezone_info(parsed_number),
         'number_type': get_number_type(parsed_number),
         'valid': True,
@@ -182,7 +218,7 @@ def get_phone_info(phone_number):
 
 
 def display_results(info):
-    """Display all key phone info in a user-friendly way, including city and country"""
+    """Display all key phone info in a user-friendly way, including city, country, and lat/lon"""
     print("\n================ PHONE NUMBER INFO ================")
     if not info.get('valid'):
         print(f"❌ {info.get('error', 'Invalid number')}")
@@ -190,20 +226,10 @@ def display_results(info):
     print(f"• Number: {info.get('number')}")
     print(f"• Country Code: {info.get('country_code')}")
     print(f"• National Number: {info.get('national_number')}")
-    # City/region
-    print(f"• City/Region: {info.get('location')}")
-    # Country name
-    country_name = None
-    if 'parsed_number' in info:
-        country_name = get_country_name(info['parsed_number'])
-    else:
-        # Try to reconstruct parsed_number from info
-        try:
-            parsed_number = validate_european_number(info.get('number'))
-            country_name = get_country_name(parsed_number)
-        except Exception:
-            country_name = None
-    print(f"• Country: {country_name if country_name else 'Unknown'}")
+    print(f"• City/Region: {info.get('city')}")
+    print(f"• Country: {info.get('country') if info.get('country') else 'Unknown'}")
+    print(f"• Latitude: {info.get('latitude') if info.get('latitude') else 'Unknown'}")
+    print(f"• Longitude: {info.get('longitude') if info.get('longitude') else 'Unknown'}")
     print(f"• Carrier: {info.get('carrier')}")
     tz = info.get('timezone')
     if isinstance(tz, (list, tuple)):
