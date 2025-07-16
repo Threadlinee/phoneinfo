@@ -98,7 +98,7 @@ Validates phone numbers from all EU and European countries, including:
 
 ...and more (see COUNTRY_CODE_MAP)
 
-🔐 Disclaimer
+## 🔐 Disclaimer
 This tool is intended for educational and lawful investigative purposes only.
 
 Do not use it for harassment, spamming, or violating data privacy laws (e.g., GDPR).
@@ -107,11 +107,17 @@ It uses only publicly available APIs and metadata.
 
 Twilio Caller ID is opt-in and requires explicit integration.
 
-🧠 Author
+## 🧠 Author
 Threadlinee – GitHub
 
 If you find this project helpful, feel free to star ⭐ the repo or contribute!
 
-📄 License
+## 📄 License
 This project is licensed under the MIT License.
 
+## ☕ Support
+If you find this tool useful, drop a ⭐ or fork it. Contributions and proxy improvements are welcome.
+
+[![Buy Me a Coffee](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/G2G114SBVV)
+
+## Educational Purposes Only!! Stay safe, stay ethical. ✌️
