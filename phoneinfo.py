@@ -14,12 +14,10 @@ import pytz
 from twilio.rest import Client  # For Real-Time Caller ID
 import threading
 
-# Configuration
 USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
 REQUEST_TIMEOUT = 15
 HEADERS = {'User-Agent': USER_AGENT}
 
-# Twilio Config (For Real-Time Caller ID)
 TWILIO_SID = "YOUR_TWILIO_SID"
 TWILIO_TOKEN = "YOUR_TWILIO_TOKEN"
 
@@ -106,14 +104,12 @@ COUNTRY_CODE_MAP = {
     '423': 'Liechtenstein',
 }
 
-# Load country-city data from JSON
 try:
     with open('europe_countries_cities.json', 'r', encoding='utf-8') as f:
         country_city_data = json.load(f)
 except Exception:
     country_city_data = {}
 
-# ==================== HELPER FUNCTIONS (ADDED) ====================
 def validate_european_number(phone_number):
     try:
         parsed = phonenumbers.parse(phone_number, None)
@@ -212,7 +208,6 @@ def get_lat_lon_for_location(city, country):
     except Exception:
         return None, None
 
-# ==================== NEW REVERSE LOOKUP FUNCTIONS ====================
 def reverse_lookup_public_sources(phone_number):
     """Check public directories and social media for name associations"""
     try:
@@ -221,7 +216,6 @@ def reverse_lookup_public_sources(phone_number):
             phonenumbers.PhoneNumberFormat.E164
         ).replace('+', '')
         
-        # Check TruePeopleSearch (US/EU)
         url = f"https://www.truepeoplesearch.com/results?phoneno={formatted_num}"
         response = requests.get(url, headers=HEADERS, timeout=REQUEST_TIMEOUT)
         
@@ -231,7 +225,6 @@ def reverse_lookup_public_sources(phone_number):
             if name_tag:
                 return {"name": name_tag.get_text(strip=True), "source": "truepeoplesearch.com"}
         
-        # Fallback to Google search
         google_url = f"https://www.google.com/search?q={phone_number}"
         return {"name": "Not Found (Try manual search)", "source": google_url}
         
@@ -246,11 +239,9 @@ def reverse_lookup_social_media(phone_number):
         phonenumbers.PhoneNumberFormat.E164
     )
     
-    # Facebook
     fb_url = f"https://www.facebook.com/search/people/?q={formatted_num}"
     social_profiles.append({"platform": "Facebook", "url": fb_url})
     
-    # LinkedIn
     li_url = f"https://www.linkedin.com/search/results/all/?keywords={formatted_num}"
     social_profiles.append({"platform": "LinkedIn", "url": li_url})
     
@@ -279,7 +270,6 @@ def start_live_caller_id_monitor():
     thread.start()
     return thread
 
-# ==================== MODIFIED MAIN FUNCTIONS ====================
 def get_phone_info(phone_number):
     """Main lookup function now with always-on info display"""
     start_time = time.time()
@@ -299,7 +289,6 @@ def get_phone_info(phone_number):
     country = get_country_name(parsed_number)
     lat, lon = get_lat_lon_for_location(city, country)
 
-    # Get standard info
     result = {
         'number': formatted_num,
         'country_code': parsed_number.country_code,
@@ -352,7 +341,6 @@ def display_results(info):
     print(f"• Lookup Time: {info.get('lookup_time'):.2f} seconds")
     print("==================================================\n")
 
-# ==================== MODIFIED MAIN MENU ====================
 def main():
     print("🌍 ULTIMATE EUROPEAN PHONE TRACKER")
     print("=" * 70)
