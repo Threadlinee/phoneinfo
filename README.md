@@ -28,13 +28,15 @@ A powerful Python-based tool to perform detailed lookups of **European phone num
   pip install -r requirements.txt
 requirements.txt (example)
 
-phonenumbers
 requests
 beautifulsoup4
-twilio
+phonenumbers
 pytz
-dnspython
+reverse-geocoder
 python-whois
+dnspython
+geopy
+twilio
 
 ## 🚀 How to Use
 🔹 Mode 1: Lookup a Single Number
