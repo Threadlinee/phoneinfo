@@ -108,12 +108,12 @@ It uses only publicly available APIs and metadata.
 Twilio Caller ID is opt-in and requires explicit integration.
 
 ## 🧠 Author
-Threadlinee – GitHub
+**Threadlinee** – GitHub
 
-If you find this project helpful, feel free to star ⭐ the repo or contribute!
+If you find this project helpful, feel free to star **⭐** the repo or contribute!
 
 ## 📄 License
-This project is licensed under the MIT License.
+This project is licensed under the **MIT License.**
 
 ## ☕ Support
 If you find this tool useful, drop a ⭐ or fork it. Contributions and proxy improvements are welcome.
