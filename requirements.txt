@@ -1,9 +1,8 @@
+phonenumbers
 requests
 beautifulsoup4
-phonenumbers
-pytz
-reverse-geocoder
-python-whois
+whois
 dnspython
-geopy
+pytz
 twilio
+colorama
