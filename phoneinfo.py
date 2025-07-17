@@ -563,7 +563,7 @@ def comprehensive_lookup_report(phone_number):
 
 def main():
     print(ASCII_ART)
-    print(Fore.GREEN + Style.BRIGHT + "🌍 ULTIMATE EUROPEAN PHONE TRACKER" + Style.RESET_ALL)
+    print(Fore.GREEN + Style.BRIGHT + "🌍 Phone Number Tracker (Europe Edition)" + Style.RESET_ALL)
     print(Fore.MAGENTA + "=" * 70 + Style.RESET_ALL)
     print(Fore.YELLOW + "1. Single Number Lookup" + Style.RESET_ALL)
     print(Fore.YELLOW + "2. Real-Time Caller ID Monitor" + Style.RESET_ALL)
